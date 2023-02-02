@@ -201,13 +201,13 @@ function Chat:renderLastMessage()
         virt_text = {
           { "", "ChatGPTTotalTokensBorder" },
           {
-            "TOKENS: " .. msg.usage.total_tokens .. " / PRICE: $" .. Tokens.usage_in_dollars(msg.usage.total_tokens),
+            "TOKS: " .. msg.usage.total_tokens .. " / $: " .. Tokens.usage_in_dollars(msg.usage.total_tokens),
             "ChatGPTTotalTokens",
           },
           { "", "ChatGPTTotalTokensBorder" },
           { " ", "" },
         },
-        virt_text_pos = "right_align",
+        virt_text_pos = "eol",
       })
     end
   end
