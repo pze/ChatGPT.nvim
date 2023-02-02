@@ -195,8 +195,9 @@ function Chat:renderLastMessage()
       self:add_highlight("ChatGPTQuestion", msg.start_line + index - 1, 0, -1)
     end
   else
+    local config_use_virtual_text_in_chat = false
     local total_tokens = msg.usage.total_tokens
-    if total_tokens ~= nil then
+    if total_tokens ~= nil and config_use_virtual_text_in_chat then
       vim.api.nvim_buf_set_extmark(self.bufnr, Config.namespace_id, msg.end_line, -1, {
         virt_text = {
           { "", "ChatGPTTotalTokensBorder" },
